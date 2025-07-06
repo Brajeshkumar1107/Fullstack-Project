@@ -1,0 +1,227 @@
+<div class="registration-container">
+  <header class="registration-header">
+    <div class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Vertoz%20Logo%20224x224px-01-epBpSPHaCMVzcmM0TC8SxE0y0zQpfq.png" alt="Vertoz Logo" style="width: 100px; height: 100px;"/>
+      <!-- <span class="brand">VERTOZ</span> -->
+    </div>
+    <a class="header-link" href="https://vertoz-adz urite.com/RCSpartnersignup" target="_blank">
+      <span class="icon">🌐</span> vertoz-adz urite.com/RCSpartnersignup
+    </a>
+  </header>
+  <hr />
+  <div class="registration-content">
+    <div class="registration-form-section">
+      <form class="registration-form" (submit)="onSubmit($event)" #companyForm="ngForm">
+        <h2>Company Information <span class="info-icon">&#9432;</span></h2>
+        <div *ngIf="errorMsg" class="error-message">{{ errorMsg }}</div>
+        <div *ngIf="successMsg" class="success-message">{{ successMsg }}</div>
+        <div class="form-group">
+          <label>Company Name* <span class="info-icon">&#9432;</span></label>
+          <input type="text" maxlength="30" required [(ngModel)]="companyName" name="companyName" #companyNameModel="ngModel" />
+          <span class="char-count">{{ companyName?.length || 0 }}/30</span>
+          <div *ngIf="companyNameModel.invalid && companyNameModel.touched" class="error-text">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Business Manager Name* <span class="info-icon">&#9432;</span></label>
+          <input type="text" maxlength="30" required [(ngModel)]="businessManagerName" name="businessManagerName" #businessManagerNameModel="ngModel" />
+          <span class="char-count">{{ businessManagerName?.length || 0 }}/30</span>
+          <div *ngIf="businessManagerNameModel.invalid && businessManagerNameModel.touched" class="error-text">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number* <span class="info-icon">&#9432;</span></label>
+          <div class="phone-group">
+            <select [(ngModel)]="phoneCountryCode" name="phoneCountryCode" required #phoneCountryCodeModel="ngModel">
+              <option>IN +91</option>
+              <option>US +1</option>
+              <option>UK +44</option>
+            </select>
+            <input type="text" maxlength="30" required [(ngModel)]="phoneNumber" name="phoneNumber" #phoneNumberModel="ngModel" />
+            <span class="char-count">{{ phoneNumber?.length || 0 }}/30</span>
+          </div>
+          <div *ngIf="phoneNumberModel.invalid && phoneNumberModel.touched" class="error-text">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Company Email Address* <span class="info-icon">&#9432;</span></label>
+          <input type="email" maxlength="30" required [(ngModel)]="companyEmail" name="companyEmail" #companyEmailModel="ngModel" />
+          <span class="char-count">{{ companyEmail?.length || 0 }}/30</span>
+          <div *ngIf="companyEmailModel.invalid && companyEmailModel.touched" class="error-text">Valid email required</div>
+        </div>
+        <div class="form-group">
+          <label>Designation* <span class="info-icon">&#9432;</span></label>
+          <input type="text" maxlength="30" required [(ngModel)]="designation" name="designation" #designationModel="ngModel" />
+          <span class="char-count">{{ designation?.length || 0 }}/30</span>
+          <div *ngIf="designationModel.invalid && designationModel.touched" class="error-text">Required</div>
+        </div>
+        <h3 class="guidelines-title">Important Guidelines & Resources</h3>
+        <div class="guidelines-row">
+          <div class="guideline-card blue">
+            <div class="guideline-title">Compliance Guidelines</div>
+            <div class="guideline-desc">Review comprehensive Dos and Don'ts for RCS Business Messaging compliance.</div>
+            <button type="button" class="guideline-btn" (click)="openDosModal()">&#128196; Dos and Don'ts Document</button>
+          </div>
+          <div class="guideline-card green">
+            <div class="guideline-title">Frequently Asked Questions</div>
+            <div class="guideline-desc">Get answers to common questions about RCS Business Messaging.</div>
+            <button type="button" class="guideline-btn" (click)="openFaqModal()">&#128196; FAQs on RCS Document</button>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="prev-btn" (click)="onPrevious()">Previous</button>
+          <button type="submit" class="prev-btn" [disabled]="companyForm.invalid || isLoading">
+            {{ isLoading ? 'Submitting...' : 'Submit' }}
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="registration-preview-section">
+      <div class="preview-device">
+        <div class="preview-logo">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/RCS_Your%20Next-Gen%20Messaging%20Awaits.jpg-I0Rpae0KpVPBbIyzBhrkLw31FzZX2M.jpeg" alt="Vertoz Logo" style="width: 100%;" class="side-image"/>
+      
+        </div>
+        <div class="preview-title">Vertoz</div>
+        <div class="preview-desc">Empowering Digital Landscape</div>
+        <div class="preview-actions">
+          <div class="action"><span class="icon">&#9742;</span> Call</div>
+          <div class="action"><span class="icon">&#127760;</span> Website</div>
+          <div class="action"><span class="icon">&#9993;</span> Email</div>
+        </div>
+        <div class="preview-contact">
+          <div class="contact-item"><span class="icon">&#9742;</span> +91 22 6142 6030<br /><span class="label">Inquiry</span></div>
+          <div class="contact-item"><span class="icon">&#127760;</span> https://vertoz.com/<br /><span class="label">Visit Us</span></div>
+          <div class="contact-item"><span class="icon">&#9993;</span> Hello&#64;Vertoz.com<br /><span class="label">Write to Us</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="guideline-modal" *ngIf="showDosModal">
+  <div class="guideline-modal-content">
+    <div class="guideline-modal-header">
+      <h2>Dos and Don'ts for RCS</h2>
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+    <h3 style="color: #1b5e20;">Do's:</h3>
+    <ol>
+      <li><b>Comply with TRAI & Google Policies:</b>
+        <p>Adhere to the Telecom Regulatory Authority of India (TRAI) guidelines for messaging, and also follow Google's RCS Business Messaging policies, especially regarding spam, data privacy, and consent.</p>
+      </li>
+      <li><b>Register on Google's Verified Sender Program:</b>
+        <p>Ensure that your business is registered as a verified sender through Google to build trust with your customers. This helps in brand recognition and improves message delivery rates.</p>
+      </li>
+      <li><b>Use Google's Verified Business Messaging Features:</b>
+        <p>Leverage features such as branding, chatbots, quick replies, rich media (images, videos), and carousels. These features make your messages more engaging and interactive, leading to higher conversion rates.</p>
+      </li>
+      <li><b>Obtain Customer Consent:</b>
+        <p>Ensure you have explicit opt-in from customers before sending any RCS messages. Maintain proper records of consent for compliance.</p>
+      </li>
+      <li><b>Focus on Personalization:</b>
+        <p>Personalize messages based on user preferences, purchase history, and behavior to enhance engagement. Google's RCS platform allows you to create tailored content, so make use of this functionality.</p>
+      </li>
+      <li><b>Use Rich Media Wisely:</b>
+        <p>Use images, videos, and buttons to create interactive experiences. However, ensure that media enhances the message rather than overcomplicating it.</p>
+      </li>
+      <li><b>Provide Opt-Out Options:</b>
+        <p>Always offer an easy-to-access opt-out mechanism in every message to allow customers to stop receiving messages if they wish.</p>
+      </li>
+      <li><b>Ensure Message Security:</b>
+        <p>Google's RCS Business Messaging supports encryption for secure communication. Use this feature, especially when transmitting sensitive information such as OTPs, personal data, or payment details.</p>
+      </li>
+      <li><b>Test Your Messages:</b>
+        <p>Perform comprehensive testing across different devices and networks to ensure that your messages (including media, buttons, and chat flows) work properly.</p>
+      </li>
+      <li><b>Track and Analyze Performance:</b>
+        <p>Use Google's analytics tools or integrate with your internal CRM to monitor metrics such as read receipts, click-through rates, and user engagement. This data can help improve future campaigns.</p>
+      </li>
+    </ol>
+    <h3 style="color: #c62828;">Don'ts:</h3>
+    <ol>
+      <li><b>Don't Spam:</b>
+        <p>Avoid sending unsolicited or frequent messages to users. Over-messaging can lead to opt-outs and even regulatory issues which may impact your BOT and leads to temporary suspension.</p>
+      </li>
+      <li><b>Avoid Generic, Non-Interactive Messaging:</b>
+        <p>Don't treat RCS like traditional SMS. Avoid sending static, text-heavy messages. RCS offers rich, interactive features—utilize them to create meaningful engagements.</p>
+      </li>
+      <li><b>Don't Violate User Privacy:</b>
+        <p>Never misuse user data or send messages without proper consent. Adhere to data privacy laws, such as the Personal Data Protection Bill in India, to avoid legal issues.</p>
+      </li>
+      <li><b>Avoid Sending Messages at Odd Hours:</b>
+        <p>Be mindful of the time when sending messages. Avoid sending promotional messages late at night or early in the morning unless it's crucial or user-initiated.</p>
+      </li>
+      <li><b>Don't Overload with Media:</b>
+        <p>While rich media is a great feature of RCS, avoid excessive use of images, videos, or carousels that may slow down delivery or overwhelm the user.</p>
+      </li>
+      <li><b>Don't Ignore Customer Support Features:</b>
+        <p>Google's RCS Business Messaging allows for two-way communication. Don't ignore customer queries or fail to provide real-time support where necessary.</p>
+      </li>
+      <li><b>Don't Skip Message Localization:</b>
+        <p>Avoid sending messages only in English if your audience is diverse. RCS supports localization, so take advantage of this by sending messages in the local language for better engagement.</p>
+      </li>
+      <li><b>Don't Send Long, Complex Messages:</b>
+        <p>Keep your messages concise and easy to understand. Avoid sending long paragraphs that could lead to disengagement.</p>
+      </li>
+      <li><b>Don't Forget Branding Consistency:</b>
+        <p>Always maintain consistency in your branding. Since RCS allows custom logos, colors, and chat themes, use these features to reinforce your brand identity in every communication.</p>
+      </li>
+      <li><b>Don't Overlook Compliance Updates:</b>
+        <p>Regularly update yourself with any changes in Google's RCS Business Messaging guidelines and Indian regulations to ensure your campaigns are always compliant.</p>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="guideline-modal" *ngIf="showFaqModal">
+  <div class="guideline-modal-content">
+    <div class="guideline-modal-header">
+      <h2>Frequently Asked Questions</h2>
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+    <ol>
+      <li><b>What is RCS Business Messaging?</b>
+        <p>RCS (Rich Communication Services) is an upgraded SMS channel that enables branded, interactive messaging on Android devices.</p>
+      </li>
+      <li><b>How is RCS better than SMS?</b>
+        <p>RCS supports rich media (images, videos, carousels), branding, verified sender info, and two-way conversational messaging.</p>
+      </li>
+      <li><b>Who can use RCS Business Messaging?</b>
+        <p>Brands across industries can use RCS for marketing, customer service, updates, and transactional messages.</p>
+      </li>
+      <li><b>Is RCS available on all phones?</b>
+        <p>RCS works on Android devices with RCS-enabled carriers and messaging apps like Google Messages.</p>
+      </li>
+      <li><b>Do customers need an app to receive RCS messages?</b>
+        <p>No, RCS messages are delivered directly to the native messaging app on compatible Android phones.</p>
+      </li>
+      <li><b>How are RCS messages delivered?</b>
+        <p>Messages are delivered over mobile data or Wi-Fi, not traditional SMS channels.</p>
+      </li>
+      <li><b>What content types does RCS support?</b>
+        <p>RCS supports text, images, videos, buttons, carousels, suggested replies, and more.</p>
+      </li>
+      <li><b>Is RCS secure?</b>
+        <p>Yes, RCS includes verified sender IDs and encryption between carrier and device (not end-to-end).</p>
+      </li>
+      <li><b>What is required to start RCS messaging?</b>
+        <p>Brands need to register an RCS agent, provide brand assets, and work with an approved messaging partner.</p>
+      </li>
+      <li><b>Can we track performance on RCS?</b>
+        <p>Yes, RCS provides read receipts, delivery reports, and interaction tracking.</p>
+      </li>
+      <li><b>What are the pricing models for RCS?</b>
+        <p>Pricing varies by region and carrier, commonly based on cost per-message or session-based models.</p>
+      </li>
+      <li><b>Can RCS support two-way conversations?</b>
+        <p>Yes, RCS enables real-time, interactive two-way messaging with users.</p>
+      </li>
+      <li><b>Is RCS available globally?</b>
+        <p>RCS availability varies by market and carrier; it is widely supported in the US, UK, India, and parts of Europe.</p>
+      </li>
+      <li><b>What are the limitations of RCS?</b>
+        <p>It's not supported on iOS, and reach depends on carrier and device compatibility in India.</p>
+      </li>
+      <li><b>Can RCS be integrated with CRMs or bots?</b>
+        <p>Yes, RCS can be integrated with CRMs, AI chatbots, and automation platforms via APIs.</p>
+      </li>
+    </ol>
+  </div>
+</div>

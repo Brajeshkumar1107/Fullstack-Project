@@ -1,0 +1,30 @@
+<header class="menu-header">
+  <div class="menu-logo">
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Vertoz%20Logo%20224x224px-01-epBpSPHaCMVzcmM0TC8SxE0y0zQpfq.png" alt="Vertoz Logo" style="width: 100px; height: 100px;"/>
+  </div>
+  <a class="header-link" href="https://vertoz-adz urite.com/RCSpartnersignup" target="_blank">
+    <span class="icon">🌐</span> vertoz-adz urite.com/RCSpartnersignup
+  </a>
+</header>
+<hr />
+<div class="dashboard-container">
+  <h2>Registrations</h2>
+  <table class="registration-table">
+    <thead>
+      <tr>
+        <th>Company Name</th>
+        <th>Manager</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reg of sortedRegistrations">
+        <td>{{ reg.companyName }}</td>
+        <td>{{ reg.managerName }}</td>
+        <td>{{ reg.email }}</td>
+        <td>{{ reg.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> 

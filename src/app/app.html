@@ -1,0 +1,8 @@
+<app-login *ngIf="step === 'login'" (loginSuccess)="onLoginSuccess()" (register)="step = 'register-user'"></app-login>
+<app-menu *ngIf="step === 'menu'" (register)="onMenuRegister()"></app-menu>
+<app-registration *ngIf="step === 'registration'" (next)="step = 'company-info'" (previous)="onRegistrationPrevious()"></app-registration>
+<app-company-info *ngIf="step === 'company-info'" (previous)="onCompanyInfoPrevious()" (submit)="onCompanyInfoSubmit()"></app-company-info>
+<app-dashboard *ngIf="step === 'dashboard'"></app-dashboard>
+<app-register *ngIf="step === 'register-user'" (registerSuccess)="step = 'login'"></app-register>
+
+

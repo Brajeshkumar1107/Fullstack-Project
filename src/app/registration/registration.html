@@ -1,0 +1,113 @@
+<div class="registration-container">
+  <header class="registration-header">
+    <div class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Vertoz%20Logo%20224x224px-01-epBpSPHaCMVzcmM0TC8SxE0y0zQpfq.png" alt="Vertoz Logo" style="width: 100px; height: 100px;"/>
+      <!-- <span class="brand">VERTOZ</span> -->
+    </div>
+    <a class="header-link" href="https://vertoz-adz urite.com/RCSpartnersignup" target="_blank">
+      <span class="icon">🌐</span> vertoz-adz urite.com/RCSpartnersignup
+    </a>
+  </header>
+  <hr />
+  <div class="registration-content">
+    <div class="registration-form-section">
+      <form class="registration-form" (submit)="onNext($event)">
+        <h2>Agent Registration Form <span class="info-icon">&#9432;</span></h2>
+        <div class="form-group">
+          <label>Bot Type <span class="info-icon">&#9432;</span></label>
+          <select required [(ngModel)]="botType" name="botType">
+            <option>Domestic/India</option>
+            <option>International</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Bot Message Type <span class="info-icon">&#9432;</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="msgType" [(ngModel)]="botMessageType" value="OTP" required /> OTP</label>
+            <label><input type="radio" name="msgType" [(ngModel)]="botMessageType" value="Transactional" /> Transactional</label>
+            <label><input type="radio" name="msgType" [(ngModel)]="botMessageType" value="Promotional" /> Promotional</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Bot Name <span class="info-icon">&#9432;</span></label>
+          <input type="text" maxlength="30" required [(ngModel)]="botName" name="botName" />
+          <span class="char-count">{{ botName.length }}/30</span>
+        </div>
+        <div class="form-group">
+          <label>Brand Name <span class="info-icon">&#9432;</span></label>
+          <input type="text" maxlength="30" required [(ngModel)]="brandName" name="brandName" />
+          <span class="char-count">{{ brandName.length }}/30</span>
+        </div>
+        <div class="form-group">
+          <label>Bot Logo <span class="info-icon">&#9432;</span></label>
+          <input type="file" (change)="onBotLogoChange($event)" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label>Banner Image <span class="info-icon">&#9432;</span></label>
+          <input type="file" (change)="onBannerImageChange($event)" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label>Short Description <span class="info-icon">&#9432;</span></label>
+          <textarea maxlength="100" required [(ngModel)]="shortDescription" name="shortDescription"></textarea>
+          <span class="char-count">{{ shortDescription.length }}/100</span>
+        </div>
+        <div class="form-group">
+          <label>Color <span class="info-icon">&#9432;</span></label>
+          <input type="color" [(ngModel)]="color" name="colorPicker" />
+          <input type="text" [value]="color" readonly style="border: 1px solid #d1d5db;" />
+        </div>
+        <div class="form-group">
+          <label>Primary Phone Number <span class="info-icon">&#9432;</span></label>
+          <div class="phone-group">
+            <select [(ngModel)]="primaryPhoneCountryCode" name="primaryPhoneCountryCode"><option>IN +91</option></select>
+            <input type="text" required [(ngModel)]="primaryPhoneNumber" name="primaryPhoneNumber" />
+          </div>
+          <input type="text" required [(ngModel)]="primaryPhoneLabel" name="primaryPhoneLabel" />
+        </div>
+        <div class="form-group">
+          <label>Primary Email ID <span class="info-icon">&#9432;</span></label>
+          <input type="email" required [(ngModel)]="primaryEmail" name="primaryEmail" />
+          <input type="text" required [(ngModel)]="primaryEmailLabel" name="primaryEmailLabel" />
+        </div>
+        <div class="form-group">
+          <label>Primary Website <span class="info-icon">&#9432;</span></label>
+          <input type="url" required [(ngModel)]="primaryWebsite" name="primaryWebsite" />
+          <input type="text" required [(ngModel)]="primaryWebsiteLabel" name="primaryWebsiteLabel" />
+        </div>
+        <div class="form-group">
+          <label>Terms & Conditions URL <span class="info-icon">&#9432;</span></label>
+          <input type="url" required [(ngModel)]="termsAndConditionsUrl" name="termsAndConditionsUrl" />
+        </div>
+        <div class="form-group">
+          <label>Privacy Policy URL <span class="info-icon">&#9432;</span></label>
+          <input type="url" required [(ngModel)]="privacyPolicyUrl" name="privacyPolicyUrl" />
+        </div>
+        <div class="form-group">
+          <label>Language Supported <span class="info-icon">&#9432;</span></label>
+          <select required [(ngModel)]="languageSupported" name="languageSupported"><option>English</option></select>
+        </div>
+        <button type="submit" class="next-btn">Next</button>
+      </form>
+    </div>
+    <div class="registration-preview-section">
+      <div class="preview-device">
+        <div class="preview-logo">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/RCS_Your%20Next-Gen%20Messaging%20Awaits.jpg-I0Rpae0KpVPBbIyzBhrkLw31FzZX2M.jpeg" alt="Vertoz Logo" style="width: 100%;" class="side-image"/>
+      
+        </div>
+        <div class="preview-title">Vertoz</div>
+        <div class="preview-desc">Empowering Digital Landscape</div>
+        <div class="preview-actions">
+          <div class="action"><span class="icon">&#9742;</span> Call</div>
+          <div class="action"><span class="icon">&#127760;</span> Website</div>
+          <div class="action"><span class="icon">&#9993;</span> Email</div>
+        </div>
+        <div class="preview-contact">
+          <div class="contact-item"><span class="icon">&#9742;</span> +91 22 6142 6030<br /><span class="label">Inquiry</span></div>
+          <div class="contact-item"><span class="icon">&#127760;</span> https://vertoz.com/<br /><span class="label">Visit Us</span></div>
+          <div class="contact-item"><span class="icon">&#9993;</span> Hello&#64;Vertoz.com<br /><span class="label">Write to Us</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

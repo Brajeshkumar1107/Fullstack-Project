@@ -1,0 +1,25 @@
+<div class="register-container">
+  <header class="register-header">
+    <div class="logo">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Vertoz%20Logo%20224x224px-01-epBpSPHaCMVzcmM0TC8SxE0y0zQpfq.png" alt="Vertoz Logo" style="width: 100px; height: 100px;"/>
+    </div>
+    <a class="header-link" href="https://vertoz-adz urite.com/RCSpartnersignup" target="_blank">
+      <span class="icon">🌐</span> vertoz-adz urite.com/RCSpartnersignup
+    </a>
+  </header>
+  <div class="register-content">
+    <form class="register-form" (submit)="onRegisterSubmit($event)">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div *ngIf="errorMsg" class="error-msg">{{ errorMsg }}</div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div> 
